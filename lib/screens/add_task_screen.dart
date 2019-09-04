@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:todoey_flutter/models/task.dart';
+import 'package:todoey_flutter/models/task_data.dart';
 
 class AddTaskScreen extends StatelessWidget {
-  final Function addTaskCallback;
   final myController = TextEditingController();
-
-  AddTaskScreen({this.addTaskCallback});
 
   @override
   Widget build(BuildContext context) {
@@ -41,8 +38,8 @@ class AddTaskScreen extends StatelessWidget {
               color: Colors.lightBlueAccent,
 //              onPressed: () => addTaskCallback(myController.text),
               onPressed: () {
-                Provider.of<Todo>(context)
-                    .addTask(Task(name: myController.text));
+                Provider.of<TaskData>(context).addTask(myController.text);
+                Navigator.pop(context);
               },
               child: Text(
                 'Add',
