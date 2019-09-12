@@ -11,12 +11,3 @@ class Task {
     isDone = !isDone;
   }
 }
-
-class Todo extends ChangeNotifier {
-  List<Task> tasks = [];
-
-  void addTask(Task newTodo) {
-    tasks.add(newTodo);
-    notifyListeners();
-  }
-}
